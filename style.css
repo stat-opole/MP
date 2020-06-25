@@ -1,0 +1,30 @@
+
+
+.obrazek {
+	float:left;
+	width:400px;
+	height:282px;
+}
+
+.puzzle {
+	width:80%;
+}
+
+.wybierz_poziom {
+	text-align:right;
+}
+
+#page_1 {
+	text-align:center;
+}
+
+a {
+outline:0;
+}
+.canvas_1 {
+	width:40%;
+	height:auto;
+	/* background-color:yellow; */
+}
+
+canvas { display: block; margin: 10px auto;
