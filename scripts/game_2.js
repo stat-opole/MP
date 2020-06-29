@@ -17,6 +17,15 @@
  var currentPiece;
  var currentDropPiece;
  
+  var start, seconds, minutes, hours, t;
+ 	
+start = document.getElementById('txt3'),
+   
+ seconds = 0, minutes = 0, hours = 0, t;
+    start.textContent = "00:00:00";
+
+ 
+ 
  var mx, my;
  
  function init()
@@ -29,6 +38,61 @@
 
  }
 
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =
+  h + ":" + m + ":" + s;
+  var t = setTimeout(startTime, 500);
+  dateTime();
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};
+  return i;
+}
+
+function dateTime() {
+		var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0');
+var yyyy = today.getFullYear();
+
+today = mm + '.' + dd + '.' + yyyy;
+
+document.getElementById('txt2').innerHTML =
+  today;
+  
+
+ 
+}
+
+function add() {
+	
+    seconds++;
+    if (seconds >= 60) {
+        seconds = 0;
+        minutes++;
+        if (minutes >= 60) {
+            minutes = 0;
+            hours++;
+        }
+    }
+    
+    start.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+
+    timer();
+}
+function timer() {
+	
+	
+    t = setTimeout(add, 1000);
+}
+
+
  function onImage()
  {
 	pieceWidth = Math.floor(img.width / puzzle_level);
@@ -37,6 +101,8 @@
 	puzzleWidth = pieceWidth * puzzle_level;
     puzzleHeight = pieceHeight * puzzle_level;
     
+	startTime();
+timer();
 	setCanvas();
     initPuzzle();
 }
@@ -241,7 +307,6 @@ function mouseUp()
 
 	resetPuzzleAndCheckWin();
 }
-
 function resetPuzzleAndCheckWin(){
     ctx.clearRect(0,0,puzzleWidth,puzzleHeight);
     var gameWin = true;
@@ -249,10 +314,44 @@ function resetPuzzleAndCheckWin(){
     var piece;
     for(i = 0;i < pieces.length;i++){
         piece = pieces[i];
+	
         ctx.drawImage(img, piece.x, piece.y, pieceWidth, pieceHeight, piece.xx, piece.yy, pieceWidth, pieceHeight);
         ctx.strokeRect(piece.xx, piece.yy, pieceWidth,pieceHeight);
-       
+       if(piece.xx != piece.x || piece.yy != piece.y){
+            gameWin = false;
+			
+        }
+		
     }
+	
+	if(gameWin)
+	{
+		
+		setTimeout(gameOver,500);
+	}
     
 }
+
+function myStopFunction() {
+              clearInterval(t);
+      }
  
+ 
+function gameOver(){
+    document.onmousedown = null;
+    document.onmousemove = null;
+    document.onmouseup = null;
+	
+	var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =
+  h + ":" + m + ":" + s;
+
+	
+	alert("Gratulacje! \nUkończyłaś/eś grę w czasie: "+start.textContent + "\nGodzina zakończenia układania puzzli: "+ h+":"+m+":"+s +"\nTwoje hasło to: ********");
+  myStopFunction();
+}
