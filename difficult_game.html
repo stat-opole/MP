@@ -5,9 +5,7 @@
 
 		<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Milena Paruch" />
-    <meta name="application-name" content="iNvent" />
-    <meta name="generator" content="Microsoft Visual Studio 2019 Community" />
+
     <meta name="robots" content="noindex, nofollow" />
     <meta name="copyright" content="&copy UStat Opole" />
     <title>Puzzle</title>
@@ -22,7 +20,7 @@
 
 	<body class="d-flex flex-column h-100" style="background-color:#fffad5" onload="init()">
 <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color:silver">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow" style="background-color:silver">
             <div class="container-fluid">
                 <a class="navbar-brand d-flex align-items-center">
                     <img src="images/logo_opole.png" style="height: 56px;"  />               
@@ -37,7 +35,17 @@
 
 
   			<div class="flex-shrink-0">
-            <div class="container-fluid mt-3 pb-3">
+            <div class="container-fluid ">
+			
+			<div class="row mb-3" style="background-color:yellow">
+
+				<div class="mt-2 offset-1"><h6>Data: <label id="txt2"></label> </h6></div>
+				<div class="offset-1 mt-2"><h6>Godzina: <label id="txt"></label> </h6></div>
+				<div class="offset-1 mt-2"><h6>Poziom: trudny </h6></div>
+<div class="offset-1 mt-2"><h6>Czas gry: <label id="txt3"></label> </h6></div>
+			
+
+				</div>
             <div id="page">
 	
 				<div class="row justify-content-center offset-1">
