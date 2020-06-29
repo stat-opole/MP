@@ -17,6 +17,8 @@
  var currentPiece;
  var currentDropPiece;
  
+ var dd,mm,yyyy;
+ 
   var start, seconds, minutes, hours, t;
  	
 start = document.getElementById('txt3'),
@@ -57,9 +59,9 @@ function checkTime(i) {
 
 function dateTime() {
 		var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0');
-var yyyy = today.getFullYear();
+dd = String(today.getDate()).padStart(2, '0');
+mm = String(today.getMonth() + 1).padStart(2, '0');
+yyyy = today.getFullYear();
 
 today = dd + '.' + mm + '.' + yyyy;
 
@@ -352,6 +354,6 @@ function gameOver(){
   h + ":" + m + ":" + s;
 
 	
-	alert("Gratulacje! \nUkończyłaś/eś grę w czasie: "+start.textContent + "\nGodzina zakończenia układania puzzli: "+ h+":"+m+":"+s +"\nTwoje hasło to: ********");
+	alert("Gratulacje! \nUkończyłaś/eś grę w czasie: "+start.textContent +"\nData: "+dd+"."+mm+"."+yyyy + "\nGodzina zakończenia układania puzzli: "+ h+":"+m+":"+s +"\nTwoje hasło to: ********");
   myStopFunction();
 }
