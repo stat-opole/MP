@@ -1,4 +1,4 @@
- const puzzle_level = 4;
+ const puzzle_level = 8;
  var canvas = document.getElementById("myCanvas"), ctx = canvas.getContext("2d");
  
  var ctx, startX, startY;
