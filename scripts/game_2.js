@@ -1,13 +1,24 @@
- const puzzle_level = 8;
+ const puzzle_level = 6;
  var canvas = document.getElementById("myCanvas"), ctx = canvas.getContext("2d");
  
  var ctx, startX, startY;
- var img;
+ var img, img2;
  var pieces, dragHoldX, dragHoldY;
  var puzzleWidth;
  var puzzleHeight;
  var pieceWidth;
  var pieceHeight;
+var dd,mm,yyyy;
+var x ;
+
+ var start, seconds, minutes, hours, t;
+ 	
+start = document.getElementById('txt3'),
+   
+ seconds = 0, minutes = 0, hours = 0, t;
+    start.textContent = "00:00:00";
+
+
 
  var piecePuzzle;
 
@@ -17,17 +28,6 @@
  var currentPiece;
  var currentDropPiece;
  
- var dd,mm,yyyy;
- 
-  var start, seconds, minutes, hours, t;
- 	
-start = document.getElementById('txt3'),
-   
- seconds = 0, minutes = 0, hours = 0, t;
-    start.textContent = "00:00:00";
-
- 
- 
  var mx, my;
  
  function init()
@@ -36,8 +36,13 @@ start = document.getElementById('txt3'),
 	 mouse = {x:0,y:0};
 	 img = new Image();
 	 img.addEventListener('load',onImage,false);
-	 img.src = "images/zwierzaki.jpg";
-
+	 img.src = "images/Puzzle1.JPG";
+	 
+	  img2=new Image();
+	  img2.addEventListener('load',onImage,false);
+	 img2.src="images/start.jpg";
+	 
+	 
  }
 
 function startTime() {
@@ -102,30 +107,33 @@ function timer() {
     
 	puzzleWidth = pieceWidth * puzzle_level;
     puzzleHeight = pieceHeight * puzzle_level;
-    
-	startTime();
-//timer();
+    startTime();
+	
 	setCanvas();
-    //initPuzzle();
+    initPuzzle();
 }
 
 function setCanvas()
 {
     canvas.width = puzzleWidth;
-    canvas.height = puzzleHeight;
+    canvas.height = puzzleHeight+38;
     canvas.style.border = "1px solid black";
+	
+	
 }
+
 
 function initPuzzle()
 {
 	currentPiece = null;
-    currentDropPiece = null;
-		timer();
-	document.getElementById("start").style.display = "none"; 
-	
-    buildPieces();
-}
+    currentDropPiece = null
+	 ctx.drawImage(img, 0, 0, puzzleWidth, puzzleHeight, 0, 0, puzzleWidth, puzzleHeight);
 
+	 ctx.drawImage(img2, 200, 540);
+
+	buildPieces();
+
+}
 
 
 	
@@ -135,7 +143,7 @@ function buildPieces()
 	var piece;
 	var wx=0;
 	var wy=0;
-
+	
 	for(var i=0; i<puzzle_level*puzzle_level;i++)
 	{
 		piece={};
@@ -155,20 +163,28 @@ function buildPieces()
 		{
 			wx=0;
 			wy+=pieceHeight;
-		}
-		
-		
-		
-		
-	}
-	
-	shufflePuzzle();
+		}								
+	}		
+	document.onmousedown=shufflePuzzle;
 
 	
 }
 
-function shufflePuzzle(){
-    pieces = shuffleArray(pieces);
+
+
+function shufflePuzzle(e){
+	
+	var bRect = canvas.getBoundingClientRect();
+	mouseX = (e.clientX - bRect.left);
+	mouseY = (e.clientY - bRect.top);
+	
+	if(mouseX>201 && mouseX<299 && mouseY>543 && mouseY<575)
+	{
+		timer();
+	 //document.getElementById("start").style.display = "none"; 
+			canvas.height=puzzleHeight;
+			pieces = shuffleArray(pieces);
+
     var i;
     var piece;
     var wx = 0;
@@ -188,6 +204,11 @@ function shufflePuzzle(){
         }
     }
     document.onmousedown = mouseDown;
+	}
+
+	
+
+    
 }
 
 	
@@ -240,7 +261,7 @@ function mouseDown(e)
 		ctx.clearRect(currentPiece.xx,currentPiece.yy,pieceWidth,pieceHeight);
         ctx.save();
         ctx.globalAlpha = .9;
-        ctx.drawImage(img, currentPiece.xx, currentPiece.yy, pieceWidth, pieceHeight, mouseX - (pieceWidth / 2), mouseY - (pieceHeight / 2), pieceWidth, pieceHeight);
+        ctx.drawImage(img, currentPiece.x, currentPiece.y, pieceWidth, pieceHeight, mouseX - (pieceWidth / 2), mouseY - (pieceHeight / 2), pieceWidth, pieceHeight);
         ctx.restore();
         document.onmousemove = mouseMove;
         document.onmouseup = mouseUp;
@@ -275,13 +296,11 @@ function mouseMove(e)
 		ctx.strokeRect(piece.x, piece.y, pieceWidth,pieceHeight);
 		if(currentDropPiece == null){
             if(mouseX < piece.xx || mouseX > (piece.xx + pieceWidth) || mouseY < piece.yy || mouseY > (piece.yy + pieceHeight)){
-     
             }
             else{
 				currentDropPiece = piece;
 				ctx.save();
                 ctx.globalAlpha = .4;
-
                 ctx.fillRect(currentDropPiece.xx,currentDropPiece.yy,pieceWidth, pieceHeight);
                 ctx.restore();
             }
@@ -312,6 +331,7 @@ function mouseUp()
 
 	resetPuzzleAndCheckWin();
 }
+
 function resetPuzzleAndCheckWin(){
     ctx.clearRect(0,0,puzzleWidth,puzzleHeight);
     var gameWin = true;
@@ -331,7 +351,6 @@ function resetPuzzleAndCheckWin(){
 	
 	if(gameWin)
 	{
-		
 		setTimeout(gameOver,500);
 	}
     
@@ -341,7 +360,7 @@ function myStopFunction() {
               clearInterval(t);
       }
  
- 
+
 function gameOver(){
     document.onmousedown = null;
     document.onmousemove = null;
@@ -357,6 +376,11 @@ function gameOver(){
   h + ":" + m + ":" + s;
 
 	
-	alert("Gratulacje! \nUkończyłaś/eś grę w czasie: "+start.textContent +"\nData: "+dd+"."+mm+"."+yyyy + "\nGodzina zakończenia układania puzzli: "+ h+":"+m+":"+s +"\nTwoje hasło to: ********");
-  myStopFunction();
+              
+   
+	alert("Gratulacje! \nUkończyłaś/eś grę w czasie: "+start.textContent+"\nData: " +dd+"."+mm+"."+yyyy + "\nGodzina zakończenia układania puzzli: "+ h+":"+m+":"+s  +"\nTwoje hasło to: ********");
+  
+   window.location.href = "difficult_game.html";
+	myStopFunction();
+	
 }

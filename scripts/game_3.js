@@ -1,4 +1,4 @@
- const puzzle_level = 8;
+ const puzzle_level = 6;
  var canvas = document.getElementById("myCanvas"), ctx = canvas.getContext("2d");
  
  var ctx, startX, startY;
@@ -18,7 +18,7 @@ start = document.getElementById('txt3'),
  seconds = 0, minutes = 0, hours = 0, t;
     start.textContent = "00:00:00";
 
- 
+
 
  var piecePuzzle;
 
@@ -36,7 +36,7 @@ start = document.getElementById('txt3'),
 	 mouse = {x:0,y:0};
 	 img = new Image();
 	 img.addEventListener('load',onImage,false);
-	 img.src = "images/zwierzaki.jpg";
+	 img.src = "images/Puzzle2.JPG";
 	 
 	  img2=new Image();
 	  img2.addEventListener('load',onImage,false);
@@ -129,9 +129,8 @@ function initPuzzle()
     currentDropPiece = null
 	 ctx.drawImage(img, 0, 0, puzzleWidth, puzzleHeight, 0, 0, puzzleWidth, puzzleHeight);
 
-	 ctx.drawImage(img2, 150, 280);
+	 ctx.drawImage(img2, 200, 546);
 
-	 
 	buildPieces();
 
 }
@@ -174,13 +173,15 @@ function buildPieces()
 
 
 function shufflePuzzle(e){
-	timer();
+	
 	var bRect = canvas.getBoundingClientRect();
 	mouseX = (e.clientX - bRect.left);
 	mouseY = (e.clientY - bRect.top);
-	console.log(mouseY);
-	if(mouseX>153 && mouseX<248 && mouseY>283 && mouseY<315)
+	
+	if(mouseX>201 && mouseX<299 && mouseY>549 && mouseY<581)
 	{
+		timer();
+	 //document.getElementById("start").style.display = "none"; 
 			canvas.height=puzzleHeight;
 			pieces = shuffleArray(pieces);
 
@@ -260,7 +261,7 @@ function mouseDown(e)
 		ctx.clearRect(currentPiece.xx,currentPiece.yy,pieceWidth,pieceHeight);
         ctx.save();
         ctx.globalAlpha = .9;
-        ctx.drawImage(img, currentPiece.xx, currentPiece.yy, pieceWidth, pieceHeight, mouseX - (pieceWidth / 2), mouseY - (pieceHeight / 2), pieceWidth, pieceHeight);
+        ctx.drawImage(img, currentPiece.x, currentPiece.y, pieceWidth, pieceHeight, mouseX - (pieceWidth / 2), mouseY - (pieceHeight / 2), pieceWidth, pieceHeight);
         ctx.restore();
         document.onmousemove = mouseMove;
         document.onmouseup = mouseUp;
@@ -379,6 +380,7 @@ function gameOver(){
    
 	alert("Gratulacje! \nUkończyłaś/eś grę w czasie: "+start.textContent+"\nData: " +dd+"."+mm+"."+yyyy + "\nGodzina zakończenia układania puzzli: "+ h+":"+m+":"+s  +"\nTwoje hasło to: ********");
   
+  // window.location.href = "difficult_game.html";
 	myStopFunction();
 	
 }

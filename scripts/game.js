@@ -1,4 +1,4 @@
- const puzzle_level = 4;
+ const puzzle_level = 2;
  var canvas, ctx;
  
  var ctx, startX, startY;
@@ -36,7 +36,7 @@ start = document.getElementById('txt3'),
 	 mouse = {x:0,y:0};
 	 img = new Image();
 	 img.addEventListener('load',onImage,false);
-	 img.src = "images/zwierzaki.jpg";
+	 img.src = "images/Puzzle4.JPG";
 	 
 	 //start_game = document.getElementById('start'),
 	 // img2=new Image();
@@ -44,6 +44,8 @@ start = document.getElementById('txt3'),
 	 // img2.src="images/start.jpg";
 
  }
+ 
+
  
  function startTime() {
   var today = new Date();
@@ -246,7 +248,7 @@ function mouseDown(e)
 		ctx.clearRect(currentPiece.xx,currentPiece.yy,pieceWidth,pieceHeight);
         ctx.save();
         ctx.globalAlpha = .9;
-        ctx.drawImage(img, currentPiece.xx, currentPiece.yy, pieceWidth, pieceHeight, mouseX - (pieceWidth / 2), mouseY - (pieceHeight / 2), pieceWidth, pieceHeight);
+        ctx.drawImage(img, currentPiece.x, currentPiece.y, pieceWidth, pieceHeight, mouseX - (pieceWidth / 2), mouseY - (pieceHeight / 2), pieceWidth, pieceHeight);
         ctx.restore();
         document.onmousemove = mouseMove;
         document.onmouseup = mouseUp;
@@ -361,9 +363,10 @@ function gameOver(){
   document.getElementById('txt').innerHTML =
   h + ":" + m + ":" + s;
 
-	//window.location.href = "difficult_game.html";
-	alert("Gratulacje! \nUkończyłaś/eś grę w czasie: "+start.textContent + "\nData: "+dd+"." +mm+"."+yyyy +"\nGodzina zakończenia układania puzzli: "+ h+":"+m+":"+s +"\nTwoje hasło to: ********");
+	alert("Gratulacje! \nUkończyłaś/eś poziom łatwy w czasie: "+start.textContent +"\nPrzechodzisz do poziomu średniego");
    myStopFunction();
+
+   window.location.href = "middle_game.html";
 }
 
 
