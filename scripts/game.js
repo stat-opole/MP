@@ -37,6 +37,11 @@ start = document.getElementById('txt3'),
 	 img = new Image();
 	 img.addEventListener('load',onImage,false);
 	 img.src = "images/zwierzaki.jpg";
+	 
+	 //start_game = document.getElementById('start'),
+	 // img2=new Image();
+	  // img2.addEventListener('load',onImage,false);
+	 // img2.src="images/start.jpg";
 
  }
  
@@ -106,9 +111,9 @@ function timer() {
 	puzzleWidth = pieceWidth * puzzle_level;
     puzzleHeight = pieceHeight * puzzle_level;
     startTime();
-timer();
+//timer();
 	setCanvas();
-    initPuzzle();
+    //initPuzzle();
 }
 
 function setCanvas()
@@ -122,6 +127,8 @@ function initPuzzle()
 {
 	currentPiece = null;
     currentDropPiece = null
+	timer();
+	document.getElementById("start").style.display = "none"; 
     buildPieces();
 }
 
@@ -354,9 +361,9 @@ function gameOver(){
   document.getElementById('txt').innerHTML =
   h + ":" + m + ":" + s;
 
-	
-	alert("Gratulacje! \nUkończyłaś/eś grę w czasie: "+start.textContent + "\nData: "+dd+"." +mm+"."+yyyy +"\nGodzina zakończenia układania puzzli: "+ h+":"+m+":"+s +"\nTwoje hasło to: ********");
-   myStopFunction();
+	window.location.href = "difficult_game.html";
+	//alert("Gratulacje! \nUkończyłaś/eś grę w czasie: "+start.textContent + "\nData: "+dd+"." +mm+"."+yyyy +"\nGodzina zakończenia układania puzzli: "+ h+":"+m+":"+s +"\nTwoje hasło to: ********");
+  // myStopFunction();
 }
 
 

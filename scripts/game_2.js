@@ -104,9 +104,9 @@ function timer() {
     puzzleHeight = pieceHeight * puzzle_level;
     
 	startTime();
-timer();
+//timer();
 	setCanvas();
-    initPuzzle();
+    //initPuzzle();
 }
 
 function setCanvas()
@@ -119,7 +119,10 @@ function setCanvas()
 function initPuzzle()
 {
 	currentPiece = null;
-    currentDropPiece = null
+    currentDropPiece = null;
+		timer();
+	document.getElementById("start").style.display = "none"; 
+	
     buildPieces();
 }
 
