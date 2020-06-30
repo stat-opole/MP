@@ -40,9 +40,8 @@
 a {
 outline:0;
 }
-.canvas_1 {
-	width:40%;
-	height:auto;
+.obrazek_1 {
+	margin: 10px auto;
 }
 
 canvas { display: block; margin: 10px auto;}
