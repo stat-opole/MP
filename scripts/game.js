@@ -361,9 +361,9 @@ function gameOver(){
   document.getElementById('txt').innerHTML =
   h + ":" + m + ":" + s;
 
-	window.location.href = "difficult_game.html";
-	//alert("Gratulacje! \nUkończyłaś/eś grę w czasie: "+start.textContent + "\nData: "+dd+"." +mm+"."+yyyy +"\nGodzina zakończenia układania puzzli: "+ h+":"+m+":"+s +"\nTwoje hasło to: ********");
-  // myStopFunction();
+	//window.location.href = "difficult_game.html";
+	alert("Gratulacje! \nUkończyłaś/eś grę w czasie: "+start.textContent + "\nData: "+dd+"." +mm+"."+yyyy +"\nGodzina zakończenia układania puzzli: "+ h+":"+m+":"+s +"\nTwoje hasło to: ********");
+   myStopFunction();
 }
 
 
