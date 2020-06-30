@@ -1,22 +1,36 @@
 
 
 .obrazek {
-	float:left;
+ float:left; 
 	width:400px;
 	height:282px;
 }
 
 .puzzle {
-	width:80%;
+	width:30%;
+	height:auto;
 }
 
 .wybierz_poziom {
 	text-align:right;
 }
+.a1 {
+	float:left;
+	position:relative;
+	/* margin-right:14%; */
+	
+	
+}
 
+.wiersz {
+	width:60%;
+	text-align:center;
+}
 #page_1 {
 	text-align:center;
 }
+
+
 
 a {
 outline:0;
