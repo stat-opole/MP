@@ -32,6 +32,8 @@ start = document.getElementById('txt3'),
  
  var touchSupported=false;
  
+
+ 
  function init()
  {
 	 
@@ -49,7 +51,23 @@ start = document.getElementById('txt3'),
 
  }
  
+  // if (Modernizr.touch) {
 
+        // touchSupported = true;
+
+        // eventsMap  = {
+
+            // select: "touchstart",
+
+            // down: "touchstart",
+
+            // up: "touchend",
+
+            // move: "touchmove"
+
+        // };
+
+    // }
  
  function startTime() {
   var today = new Date();
@@ -111,6 +129,7 @@ function timer() {
 
  function onImage()
  {
+	 console.log(Modernizr.touch);
 	pieceWidth = Math.floor(img.width / puzzle_level);
     pieceHeight = Math.floor(img.height / puzzle_level);
     
@@ -135,7 +154,24 @@ function initPuzzle()
     currentDropPiece = null
 	timer();
 	document.getElementById("start").style.display = "none"; 
-	
+	console.log(Modernizr.touch);
+	if (Modernizr.touch) {
+
+        touchSupported = true;
+
+        // eventsMap  = {
+
+            // select: "touchstart",
+
+            // down: "touchstart",
+
+            // up: "touchend",
+
+            // move: "touchmove"
+
+        // };
+
+    }
 	
     buildPieces();
 }
@@ -208,11 +244,17 @@ function shufflePuzzle(){
 	}
 	else
 	{
-		canvas.on('touchstart',function(e) {
-			var e=e.originalEvent;
-			e.preventDefault();
-			mouseDown(e);
-		});
+		
+		//img.addEventListener('load',onImage,false);
+		document.ontouchstart = function(e) {
+			//var e=e.originalEvent;
+			
+			//e.preventDefault();
+			console.log("dd");
+			document.ontouchstart = mouseDown(e);
+			
+			//mouseDown();
+		};
 	}
     //document.onmousedown = mouseDown;
 }
@@ -249,11 +291,13 @@ function inPiece()
 		}
 		
 	}
+
 	return null
 }
 
 function mouseDown(e)
 {
+	console.log("postęp");
 	var bRect = canvas.getBoundingClientRect();
 	if(!Modernizr.touch)
 	{
@@ -262,6 +306,7 @@ function mouseDown(e)
 	}
 	else
 	{
+	
 		mouseX = (e.touches[0].clientX - bRect.left);
 	mouseY = (e.touches[0].clientY - bRect.top);
 	}
@@ -281,23 +326,35 @@ function mouseDown(e)
         ctx.globalAlpha = .9;
         ctx.drawImage(img, currentPiece.x, currentPiece.y, pieceWidth, pieceHeight, mouseX - (pieceWidth / 2), mouseY - (pieceHeight / 2), pieceWidth, pieceHeight);
         ctx.restore();
-		
+	
 		if(!touchSupported)
 		{
+			
 			document.onmousemove = mouseMove;
         document.onmouseup = mouseUp;
 		}
 		else
 		{
-			canvas.bind('touchmove',function(e) {
-				var e=e.originalEvent;
+			console.log("jest ok");
+			document.ontouchmove = function(e) {
+			//var e=e.originalEvent;
 				mouseMove(e);
-			});
+				
+				document.ontouchend = function(e) {
+			//var e=e.originalEvent;
+				mouseUp(e)};
+		};
 			
-			canvas.bind('touchend',function(e) {
-				var e=ev.originalEvent;
-				mouseUp(e);
-			});
+			// canvas.bind('touchmove',function(e) {
+				// var e=e.originalEvent;
+				// mouseMove(e);
+				
+			// });
+			
+			// canvas.bind('touchend',function(e) {
+				// var e=ev.originalEvent;
+				// mouseUp(e);
+			// });
 		}
         
 	}
@@ -322,6 +379,7 @@ e.stopPropagation();
 	}
 	else
 	{
+		console.log("coraz lepiej");
 		mouseX = (e.touches[0].clientX - bRect.left);
 	mouseY = (e.touches[0].clientY - bRect.top);
 	}
@@ -374,7 +432,8 @@ function mouseUp(e)
 	}
 	else
 	{
-		canvas.unbind('touchend');
+		 document.ontouchend = null;
+		//canvas.unbind('touchend');
 	}
 
     if(currentDropPiece != null){
