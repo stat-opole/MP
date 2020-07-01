@@ -9,7 +9,9 @@ outline:0;
 .zagraj {
 	width:20%;
 }
-
+html {
+	width:100%;
+}
 .puzzle {
 	width:30%;
 }
@@ -17,8 +19,8 @@ outline:0;
 .obrazek1 {
 	/* width:537;  */
 	/* height:543; */
-	width:20%;
-	height:10%;
+	width:537px;
+	height:543px;
 	border:solid;
 }
 
