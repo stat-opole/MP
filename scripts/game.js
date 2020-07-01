@@ -129,7 +129,7 @@ function timer() {
 
  function onImage()
  {
-	 console.log(Modernizr.touch);
+	 
 	pieceWidth = Math.floor(img.width / puzzle_level);
     pieceHeight = Math.floor(img.height / puzzle_level);
     
@@ -154,7 +154,7 @@ function initPuzzle()
     currentDropPiece = null
 	timer();
 	document.getElementById("start").style.display = "none"; 
-	console.log(Modernizr.touch);
+	
 	if (Modernizr.touch) {
 
         touchSupported = true;
@@ -292,7 +292,7 @@ function inPiece()
 
 function mouseDown(e)
 {
-	console.log("postęp");
+
 	var bRect = canvas.getBoundingClientRect();
 	if(!Modernizr.touch)
 	{
@@ -330,7 +330,7 @@ function mouseDown(e)
 		}
 		else
 		{
-			console.log("jest ok");
+			
 			document.ontouchmove =mouseMove;
 			document.ontouchend = mouseUp;
 			//e=e.originalEvent;
@@ -365,7 +365,7 @@ function mouseMove(e)
 	
 	currentDropPiece = null;
 //e.preventDefault();
-e.stopPropagation();
+	e.stopPropagation();
 
 	var bRect = canvas.getBoundingClientRect();
 	
@@ -376,7 +376,7 @@ e.stopPropagation();
 	}
 	else
 	{
-		console.log("coraz lepiej");
+	
 		mouseX = (e.touches[0].clientX - bRect.left);
 	mouseY = (e.touches[0].clientY - bRect.top);
 	}
