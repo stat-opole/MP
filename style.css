@@ -3,7 +3,7 @@ a {
 outline:0;
 }
 
- canvas {display:block; margin-left: 10px;}
+ /* canvas {display:block; margin-left: 10px;} */
 
 
 .zagraj {
@@ -12,4 +12,20 @@ outline:0;
 
 .puzzle {
 	width:30%;
+}
+
+.obrazek1 {
+	/* width:537;  */
+	/* height:543; */
+	width:20%;
+	height:10%;
+	border:solid;
+}
+
+.canvas2 {
+	margin-left: 10px;
+}
+
+.canvas1 {
+	display:block; margin-left: 10px;
 }
