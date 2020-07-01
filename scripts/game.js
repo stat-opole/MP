@@ -246,15 +246,8 @@ function shufflePuzzle(){
 	{
 		
 		//img.addEventListener('load',onImage,false);
-		document.ontouchstart = function(e) {
-			//var e=e.originalEvent;
+		document.ontouchstart = mouseDown;
 			
-			//e.preventDefault();
-			console.log("dd");
-			document.ontouchstart = mouseDown(e);
-			
-			//mouseDown();
-		};
 	}
     //document.onmousedown = mouseDown;
 }
@@ -307,8 +300,8 @@ function mouseDown(e)
 	else
 	{
 	
-		mouseX = (e.touches[0].clientX - bRect.left);
-	mouseY = (e.touches[0].clientY - bRect.top);
+		mouseX = (e.touches[0].pageX - bRect.left);
+	mouseY = (e.touches[0].pageY - bRect.top);
 	}
 	
 
@@ -337,7 +330,7 @@ function mouseDown(e)
 		{
 			console.log("jest ok");
 			document.ontouchmove = function(e) {
-			//var e=e.originalEvent;
+			//e=e.originalEvent;
 				mouseMove(e);
 				
 				document.ontouchend = function(e) {
@@ -379,9 +372,9 @@ e.stopPropagation();
 	}
 	else
 	{
-		console.log("coraz lepiej");
-		mouseX = (e.touches[0].clientX - bRect.left);
-	mouseY = (e.touches[0].clientY - bRect.top);
+		
+		mouseX = (e.touches[0].pageX - bRect.left);
+	mouseY = (e.touches[0].pageY - bRect.top);
 	}
 	
 	
@@ -432,6 +425,7 @@ function mouseUp(e)
 	}
 	else
 	{
+		document.ontouchmove = null;
 		 document.ontouchend = null;
 		//canvas.unbind('touchend');
 	}
