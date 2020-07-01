@@ -2,13 +2,14 @@
 a {
 outline:0;
 }
-/* .obrazek_1 { */
-	/* width: 70%; */
-/* } */
 
-.obrazek1 {
-	
-}
  canvas {display:block; margin-left: 10px;}
 
 
+.zagraj {
+	width:20%;
+}
+
+.puzzle {
+	width:30%;
+}
