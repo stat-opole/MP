@@ -9,9 +9,7 @@ outline:0;
 .zagraj {
 	width:20%;
 }
-html {
-	width:100%;
-}
+
 .puzzle {
 	width:30%;
 }
@@ -26,6 +24,10 @@ html {
 
 .canvas2 {
 	margin-left: 10px;
+}
+
+body {
+	height:auto;
 }
 
 .canvas1 {
