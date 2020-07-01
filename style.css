@@ -9,6 +9,6 @@ outline:0;
 .obrazek1 {
 	
 }
- canvas { margin: 10px;}
+ canvas {display:block; margin-left: 10px;}
 
 
