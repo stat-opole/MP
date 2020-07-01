@@ -196,7 +196,6 @@ function shufflePuzzle(){
         }
     }
     document.onmousedown = mouseDown;
-	document.touchstart =mouseDown;
 }
 
 	
@@ -253,37 +252,10 @@ function mouseDown(e)
         ctx.restore();
         document.onmousemove = mouseMove;
         document.onmouseup = mouseUp;
-		
-		 document.ontouchmove = mouseMove;
-        document.ontouchend = mouseUp;
 	}
 	
 }
-function mouseDown2(e)
-{
 
-	var bRect = canvas.getBoundingClientRect();
-	mouseX = (e.touches[0].clientX - bRect.left);
-	mouseY = (e.touches[0].clientY - bRect.top);
-	
-	
-	currentPiece=inPiece();
-	
-	if(currentPiece!=null)
-	{
-		ctx.clearRect(currentPiece.xx,currentPiece.yy,pieceWidth,pieceHeight);
-        ctx.save();
-        ctx.globalAlpha = .9;
-        ctx.drawImage(img, currentPiece.x, currentPiece.y, pieceWidth, pieceHeight, mouseX - (pieceWidth / 2), mouseY - (pieceHeight / 2), pieceWidth, pieceHeight);
-        ctx.restore();
-        document.onmousemove = mouseMove;
-        document.onmouseup = mouseUp;
-		
-		document.ontouchmove = mouseMove;
-        document.ontouchend = mouseUp;
-	}
-	
-}
 
 
 
@@ -336,8 +308,6 @@ function mouseUp(e)
 {
 	document.onmousemove = null;
     document.onmouseup = null;
-	document.ontouchmove = null;
-    document.ontouchend = null;
     if(currentDropPiece != null){
         var tmp = {xx:currentPiece.xx,yy:currentPiece.yy};
         currentPiece.xx = currentDropPiece.xx;
