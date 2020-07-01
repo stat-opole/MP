@@ -11,6 +11,8 @@
 var dd,mm,yyyy;
 var x ;
 
+ var touchSupported=false;
+ 
  var start, seconds, minutes, hours, t;
  	
 start = document.getElementById('txt3'),
@@ -129,8 +131,7 @@ function initPuzzle()
     currentDropPiece = null
 	 ctx.drawImage(img, 0, 0, puzzleWidth, puzzleHeight, 0, 0, puzzleWidth, puzzleHeight);
 
-	 ctx.drawImage(img2, 200, 540);
-
+	 ctx.drawImage(img2, 200, 505);
 if (Modernizr.touch) {
 
         touchSupported = true;
@@ -148,7 +149,6 @@ if (Modernizr.touch) {
         // };
 
     }
-
 	buildPieces();
 
 }
@@ -196,7 +196,7 @@ function shufflePuzzle(e){
 	mouseX = (e.clientX - bRect.left);
 	mouseY = (e.clientY - bRect.top);
 	
-	if(mouseX>201 && mouseX<299 && mouseY>543 && mouseY<575)
+	if(mouseX>201 && mouseX<299 && mouseY>503 && mouseY<540)
 	{
 		timer();
 	 //document.getElementById("start").style.display = "none"; 
@@ -278,6 +278,7 @@ function inPiece()
 
 function mouseDown(e)
 {
+	console.log(Modernizr.touch);
 
 	var bRect = canvas.getBoundingClientRect();
 	if(!Modernizr.touch)
@@ -292,6 +293,7 @@ function mouseDown(e)
 	mouseY = (e.touches[0].clientY - bRect.top);
 	}
 	
+	
 	currentPiece=inPiece();
 	
 	if(currentPiece!=null)
@@ -301,7 +303,7 @@ function mouseDown(e)
         ctx.globalAlpha = .9;
         ctx.drawImage(img, currentPiece.x, currentPiece.y, pieceWidth, pieceHeight, mouseX - (pieceWidth / 2), mouseY - (pieceHeight / 2), pieceWidth, pieceHeight);
         ctx.restore();
-        if(!touchSupported)
+      if(!touchSupported)
 		{
 			
 			document.onmousemove = mouseMove;
@@ -414,7 +416,6 @@ function mouseUp()
 		
 		//canvas.unbind('touchend');
 	}
-
     if(currentDropPiece != null){
         var tmp = {xx:currentPiece.xx,yy:currentPiece.yy};
         currentPiece.xx = currentDropPiece.xx;

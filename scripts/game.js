@@ -16,8 +16,7 @@
  var mouseY;
  var currentPiece;
  var currentDropPiece;
- 
- var result;
+
  
  var dd,mm,yyyy;
  
