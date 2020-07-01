@@ -248,6 +248,8 @@ function shufflePuzzle(){
 		//img.addEventListener('load',onImage,false);
 		document.ontouchstart = mouseDown;
 			
+			//mouseDown();
+		//};
 	}
     //document.onmousedown = mouseDown;
 }
@@ -300,8 +302,8 @@ function mouseDown(e)
 	else
 	{
 	
-		mouseX = (e.touches[0].pageX - bRect.left);
-	mouseY = (e.touches[0].pageY - bRect.top);
+		mouseX = (e.touches[0].clientX - bRect.left);
+	mouseY = (e.touches[0].clientY - bRect.top);
 	}
 	
 
@@ -329,14 +331,15 @@ function mouseDown(e)
 		else
 		{
 			console.log("jest ok");
-			document.ontouchmove = function(e) {
+			document.ontouchmove =mouseMove;
+			document.ontouchend = mouseUp;
 			//e=e.originalEvent;
-				mouseMove(e);
+				//mouseMove(e);
 				
-				document.ontouchend = function(e) {
-			//var e=e.originalEvent;
-				mouseUp(e)};
-		};
+				// document.ontouchend = function(e) {
+
+				// mouseUp(e)};
+	
 			
 			// canvas.bind('touchmove',function(e) {
 				// var e=e.originalEvent;
@@ -359,8 +362,9 @@ function mouseDown(e)
 
 function mouseMove(e)
 {
+	
 	currentDropPiece = null;
-e.preventDefault();
+//e.preventDefault();
 e.stopPropagation();
 
 	var bRect = canvas.getBoundingClientRect();
@@ -372,9 +376,9 @@ e.stopPropagation();
 	}
 	else
 	{
-		
-		mouseX = (e.touches[0].pageX - bRect.left);
-	mouseY = (e.touches[0].pageY - bRect.top);
+		console.log("coraz lepiej");
+		mouseX = (e.touches[0].clientX - bRect.left);
+	mouseY = (e.touches[0].clientY - bRect.top);
 	}
 	
 	
@@ -425,8 +429,13 @@ function mouseUp(e)
 	}
 	else
 	{
-		document.ontouchmove = null;
-		 document.ontouchend = null;
+		//document.ontouchmove = null;
+		
+				
+				//document.ontouchend = null;
+		
+		
+		
 		//canvas.unbind('touchend');
 	}
 
