@@ -17,6 +17,8 @@
  var currentPiece;
  var currentDropPiece;
  
+ var result;
+ 
  var dd,mm,yyyy;
  
  var mx, my;
@@ -27,6 +29,8 @@ start = document.getElementById('txt3'),
  seconds = 0, minutes = 0, hours = 0, t;
     start.textContent = "00:00:00";
 
+ 
+ var touchSupported=false;
  
  function init()
  {
@@ -131,6 +135,8 @@ function initPuzzle()
     currentDropPiece = null
 	timer();
 	document.getElementById("start").style.display = "none"; 
+	
+	
     buildPieces();
 }
 
@@ -195,7 +201,20 @@ function shufflePuzzle(){
             wy += pieceHeight;
         }
     }
-    document.onmousedown = mouseDown;
+	
+	if(!touchSupported)
+	{
+		 document.onmousedown = mouseDown;
+	}
+	else
+	{
+		canvas.on('touchstart',function(e) {
+			var e=e.originalEvent;
+			e.preventDefault();
+			mouseDown(e);
+		});
+	}
+    //document.onmousedown = mouseDown;
 }
 
 	
@@ -235,10 +254,22 @@ function inPiece()
 
 function mouseDown(e)
 {
-
 	var bRect = canvas.getBoundingClientRect();
-	mouseX = (e.clientX - bRect.left);
+	if(!Modernizr.touch)
+	{
+		mouseX = (e.clientX - bRect.left);
 	mouseY = (e.clientY - bRect.top);
+	}
+	else
+	{
+		mouseX = (e.touches[0].clientX - bRect.left);
+	mouseY = (e.touches[0].clientY - bRect.top);
+	}
+	
+
+
+	
+	
 	
 	
 	currentPiece=inPiece();
@@ -250,8 +281,25 @@ function mouseDown(e)
         ctx.globalAlpha = .9;
         ctx.drawImage(img, currentPiece.x, currentPiece.y, pieceWidth, pieceHeight, mouseX - (pieceWidth / 2), mouseY - (pieceHeight / 2), pieceWidth, pieceHeight);
         ctx.restore();
-        document.onmousemove = mouseMove;
+		
+		if(!touchSupported)
+		{
+			document.onmousemove = mouseMove;
         document.onmouseup = mouseUp;
+		}
+		else
+		{
+			canvas.bind('touchmove',function(e) {
+				var e=e.originalEvent;
+				mouseMove(e);
+			});
+			
+			canvas.bind('touchend',function(e) {
+				var e=ev.originalEvent;
+				mouseUp(e);
+			});
+		}
+        
 	}
 	
 }
@@ -262,10 +310,22 @@ function mouseDown(e)
 function mouseMove(e)
 {
 	currentDropPiece = null;
+e.preventDefault();
+e.stopPropagation();
 
 	var bRect = canvas.getBoundingClientRect();
-	mouseX = (e.clientX - bRect.left);
+	
+	if(!Modernizr.touch)
+	{
+		mouseX = (e.clientX - bRect.left);
 	mouseY = (e.clientY - bRect.top);
+	}
+	else
+	{
+		mouseX = (e.touches[0].clientX - bRect.left);
+	mouseY = (e.touches[0].clientY - bRect.top);
+	}
+	
 	
 	ctx.clearRect(0,0,puzzleWidth,puzzleHeight);
 	
@@ -306,8 +366,17 @@ function mouseMove(e)
 
 function mouseUp(e)
 {
+	if(!touchSupported)
+	{
+			
 	document.onmousemove = null;
     document.onmouseup = null;
+	}
+	else
+	{
+		canvas.unbind('touchend');
+	}
+
     if(currentDropPiece != null){
         var tmp = {xx:currentPiece.xx,yy:currentPiece.yy};
         currentPiece.xx = currentDropPiece.xx;
