@@ -1,4 +1,4 @@
- const puzzle_level = 5;
+ const puzzle_level = 4;
  var canvas, ctx;
  
  var ctx, startX, startY;
