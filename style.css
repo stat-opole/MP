@@ -44,5 +44,8 @@ outline:0;
 	/* width: 70%; */
 /* } */
 
-canvas { display: block; margin: 10px auto; cursor:pointer}
+canvas { display: block; margin: 10px auto;}
 
+body.touch {
+	cursor:pointer;
+}
