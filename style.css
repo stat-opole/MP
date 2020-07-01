@@ -1,42 +1,4 @@
 
-
-.obrazek {
- float:left; 
-	width:400px;
-	height:282px;
-}
-
-.puzzle {
-	width:30%;
-	height:auto;
-}
-
-.zagraj {
-	width:20%;
-	height:auto;
-}
-
-.wybierz_poziom {
-	text-align:right;
-}
-.a1 {
-	float:left;
-	position:relative;
-	/* margin-right:14%; */
-	
-	
-}
-
-.wiersz {
-	width:60%;
-	text-align:center;
-}
-#page_1 {
-	text-align:center;
-}
-
-
-
 a {
 outline:0;
 }
@@ -44,8 +6,9 @@ outline:0;
 	/* width: 70%; */
 /* } */
 
-canvas { display: block; margin: 10px auto;}
-
-body.touch {
-	cursor:pointer;
+.obrazek1 {
+	
 }
+ canvas { margin: 10px;}
+
+
