@@ -109,3 +109,20 @@ animation: fade2 5s;
   100%{opacity: 0.2}
 
 }
+
+/* @media all and (min-width:480px) and (max-width:800px) { */
+  /* /* .level1 { */ */
+	/* /* float:left;   */ */
+  /* /* } */ */
+  /* body { */
+	  /* width:auto; */
+  /* } */
+  /* header { */
+	  /* width:auto; */
+  /* } */
+  
+   /* /* div {  */ */
+     /* /* background-color:red;  */ */
+   /* /* }  */ */
+/* } */
+
