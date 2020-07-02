@@ -5,7 +5,7 @@
 
 		<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+   
     <meta name="robots" content="noindex, nofollow" />
     <meta name="copyright" content="&copy UStat Opole" />
     <title>Puzzle</title>
@@ -18,10 +18,9 @@
  <link rel="stylesheet" href="style.css" /> 
 	</head>
 
-	<body class="d-flex flex-column h-100" style="background-color:#fffad5"">
+	<body class="d-flex flex-column h-100" style="background-color:#fffad5">
 <header>
-
-       <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color:silver">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color:silver">
             <div class="container-fluid">
                 <a class="navbar-brand d-flex align-items-center">
                     <img src="images/logo_opole.png" style="height: 56px;"  />               
@@ -38,20 +37,32 @@
   			<div class="flex-shrink-0">
             <div class="container-fluid mt-3 pb-3">
 			
-			<div  style="text-align:center;" >
-			<img src="images/puzzle.jpg"  class="puzzle"> </img>
-			</div>
+		
+			
+			<!-- <div class="wybierz_poziom" style="text-shadow:1px 1px red; text-align:center; font-size:56px"> -->
+			<!-- Wybierz poziom -->
+			<!-- </div> -->
+			
+			
 			<br/>
 			<br/>
-             <div  id="page_1" style="text-align:center">
-			<a href="choose_level.html"><img class="zagraj" src="images/zagraj.png" /></a>
+             
+			
+				<div style="text-align:center">
+		
 
-			<!-- <a href="choose_level.html"><img class="zagraj" src="images/zagraj.png" /></a> -->
-
-			 </div>
+			
+			
+			<img src="images/poziom_latwy.jpg"  width="200px">
+			<img  src="images/poziom_sredni.jpg" width="200px"/>
+			<img class="fade" src="images/poziom_trudny.jpg" width="200px"/> 
+		
+			
+</div>
+		
 			 
             </div>
-        </div>
+      </div>
 
   		</main>
 <footer class="text-muted mt-auto py-3" style="background-color:silver">
@@ -63,7 +74,11 @@
 </footer>
 	   <script src="libman/jquery/jquery.min.js" type="text/javascript"></script>
     <script src="libman/bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
-    <!-- <script src="scripts/game_1.js" type="text/javascript"></script> -->
+
+
+<script> 
+ 
+setTimeout(function(){location.href="difficult_game.html"} , 5000);  </script>
 
   	</body>
 
