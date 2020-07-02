@@ -2,7 +2,7 @@
  var canvas = document.getElementById("myCanvas"), ctx = canvas.getContext("2d");
  
  var ctx, startX, startY;
- var img, img2;
+ var img, img2, img3;
  var pieces, dragHoldX, dragHoldY;
  var puzzleWidth;
  var puzzleHeight;
@@ -45,6 +45,15 @@ start = document.getElementById('txt3'),
 	 img2.src="images/start.jpg";
 	 
 	 
+ }
+ 
+ function pokaz(){
+	  //var pokazobrazek = document.getElementById("znikajacyobrazek");
+	  document.getElementById("page").style.textAlign = "left"; 
+	  document.getElementById("znikajacyobrazek").style.display = "block"; 
+ 
+	 setTimeout(function(){ document.getElementById("znikajacyobrazek").style.display = "none"; document.getElementById("page").style.textAlign = "center"; },5000);
+	   //document.getElementById("page").style.textAlign = "center"; 
  }
 
 function startTime() {
@@ -131,7 +140,7 @@ function initPuzzle()
     currentDropPiece = null
 	 ctx.drawImage(img, 0, 0, puzzleWidth, puzzleHeight, 0, 0, puzzleWidth, puzzleHeight);
 
-	 ctx.drawImage(img2, 200, 496);
+	 ctx.drawImage(img2, 200, 450);
 if (Modernizr.touch) {
 
         touchSupported = true;
@@ -195,8 +204,8 @@ function shufflePuzzle(e){
 	var bRect = canvas.getBoundingClientRect();
 	mouseX = (e.clientX - bRect.left);
 	mouseY = (e.clientY - bRect.top);
-	
-	if(mouseX>201 && mouseX<299 && mouseY>495 && mouseY<535)
+	console.log(mouseY);
+	if(mouseX>201 && mouseX<299 && mouseY>452 && mouseY<487)
 	{
 		timer();
 	 //document.getElementById("start").style.display = "none"; 
@@ -300,7 +309,8 @@ function mouseDown(e)
         ctx.save();
         ctx.globalAlpha = .9;
         ctx.drawImage(img, currentPiece.x, currentPiece.y, pieceWidth, pieceHeight, mouseX - (pieceWidth / 2), mouseY - (pieceHeight / 2), pieceWidth, pieceHeight);
-        ctx.restore();
+        ctx.strokeRect(currentPiece.x, currentPiece.y, pieceWidth,pieceHeight);
+		ctx.restore();
         if(!touchSupported)
 		{
 			
@@ -371,7 +381,7 @@ function mouseMove(e)
 		}
 		
 		ctx.drawImage(img, piece.x, piece.y, pieceWidth, pieceHeight, piece.xx, piece.yy, pieceWidth, pieceHeight);
-		ctx.strokeRect(piece.x, piece.y, pieceWidth,pieceHeight);
+		ctx.strokeRect(piece.xx, piece.yy, pieceWidth,pieceHeight);
 		if(currentDropPiece == null){
             if(mouseX < piece.xx || mouseX > (piece.xx + pieceWidth) || mouseY < piece.yy || mouseY > (piece.yy + pieceHeight)){
             }
@@ -388,7 +398,8 @@ function mouseMove(e)
 	ctx.save();
     ctx.globalAlpha = .6;
     ctx.drawImage(img, currentPiece.x, currentPiece.y, pieceWidth, pieceHeight, mouseX - (pieceWidth / 2), mouseY - (pieceHeight / 2), pieceWidth, pieceHeight);
-    ctx.restore();
+    ctx.strokeRect(currentPiece.x, currentPiece.y, pieceWidth,pieceHeight);
+	ctx.restore();
     ctx.strokeRect( mouseX - (pieceWidth / 2), mouseY - (pieceHeight / 2), pieceWidth,pieceHeight);
 	
 }

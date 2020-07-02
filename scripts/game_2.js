@@ -373,7 +373,7 @@ function mouseMove(e)
 		}
 		
 		ctx.drawImage(img, piece.x, piece.y, pieceWidth, pieceHeight, piece.xx, piece.yy, pieceWidth, pieceHeight);
-		ctx.strokeRect(piece.x, piece.y, pieceWidth,pieceHeight);
+		ctx.strokeRect(piece.xx, piece.yy, pieceWidth,pieceHeight);
 		if(currentDropPiece == null){
             if(mouseX < piece.xx || mouseX > (piece.xx + pieceWidth) || mouseY < piece.yy || mouseY > (piece.yy + pieceHeight)){
             }
