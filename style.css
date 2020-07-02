@@ -109,7 +109,4 @@ animation: fade2 5s;
   100%{opacity: 0.2}
 
 }
-body {
-	width: 100%;
-	height:auto;
-}
+
