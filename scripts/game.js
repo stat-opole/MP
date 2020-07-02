@@ -493,10 +493,10 @@ function gameOver(){
   document.getElementById('txt').innerHTML =
   h + ":" + m + ":" + s;
 
-	alert("Gratulacje! \nUkończyłaś/eś poziom łatwy w czasie: "+start.textContent +"\nPrzechodzisz do poziomu średniego");
+	alert("Gratulacje! \nUkończyłaś/eś poziom łatwy w czasie: "+start.textContent +"\nPrzechodzisz do kolejnego poziomu");
    myStopFunction();
 
-   window.location.href = "middle_game.html";
+   window.location.href = "choose_level2.html";
 }
 
 

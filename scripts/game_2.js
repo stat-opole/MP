@@ -473,9 +473,9 @@ function gameOver(){
 	
               
    
-	alert("Gratulacje! \nUkończyłaś/eś grę w czasie: "+start.textContent+"\nData: " +dd+"."+mm+"."+yyyy + "\nGodzina zakończenia układania puzzli: "+ h+":"+m+":"+s  +"\nTwoje hasło to: ********");
+	alert("Gratulacje! \nUkończyłaś/eś poziom średni w czasie: "+start.textContent +"\nPrzechodzisz do kolejnego poziomu");
   
-   window.location.href = "difficult_game.html";
+   window.location.href = "choose_level3.html";
 	myStopFunction();
 	
 }

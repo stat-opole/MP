@@ -472,9 +472,8 @@ function gameOver(){
 	
               
    
-	alert("Gratulacje! \nUkończyłaś/eś grę w czasie: "+start.textContent+"\nData: " +dd+"."+mm+"."+yyyy + "\nGodzina zakończenia układania puzzli: "+ h+":"+m+":"+s  +"\nTwoje hasło to: ********");
+	alert("Gratulacje! \nUkończyłaś/eś poziom trudny w czasie: "+start.textContent+"\nData: " +dd+"."+mm+"."+yyyy + "\nGodzina zakończenia układania puzzli: "+ h+":"+m+":"+s  +"\nTwoje hasło to: ********");
   
-  // window.location.href = "difficult_game.html";
 	myStopFunction();
 	
 }
