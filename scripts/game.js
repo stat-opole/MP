@@ -331,11 +331,11 @@ function mouseDown(e)
 		{
 			
 			canvas.addEventListener('touchmove', mouseMove, {passive: false});
-			
+			e.stopPropagation();
 			//document.ontouchmove =mouseMove;
 			//document.ontouchend = mouseUp;
-			document.addEventListener('ontouchend', mouseUp, {passive: true});
-			
+			//document.addEventListener('ontouchend', mouseUp, {passive: true});
+			document.ontouchend = mouseUp;
 		}
         
 	}
@@ -407,6 +407,7 @@ e.preventDefault();
 
 function mouseUp(e)
 {
+	
 	if(!touchSupported)
 	{
 			
