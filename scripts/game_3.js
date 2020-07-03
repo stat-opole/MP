@@ -350,9 +350,12 @@ function mouseDown(e)
 
 function mouseMove(e)
 {
-	currentDropPiece = null;
+	
+	
+	e.preventDefault();
 
 	e.stopPropagation();
+	currentDropPiece = null;
 
 	var bRect = canvas.getBoundingClientRect();
 	
