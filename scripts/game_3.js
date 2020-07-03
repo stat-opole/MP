@@ -320,26 +320,11 @@ function mouseDown(e)
 		else
 		{
 			
-			document.ontouchmove =mouseMove;
+			canvas.addEventListener('touchmove', mouseMove, {passive: false});
+			e.stopPropagation();
+			//document.ontouchmove =mouseMove;
+			//document.ontouchend = mouseUp;
 			document.ontouchend = mouseUp;
-			//e=e.originalEvent;
-				//mouseMove(e);
-				
-				// document.ontouchend = function(e) {
-
-				// mouseUp(e)};
-	
-			
-			// canvas.bind('touchmove',function(e) {
-				// var e=e.originalEvent;
-				// mouseMove(e);
-				
-			// });
-			
-			// canvas.bind('touchend',function(e) {
-				// var e=ev.originalEvent;
-				// mouseUp(e);
-			// });
 		}
 	}
 	
@@ -352,7 +337,7 @@ function mouseMove(e)
 {
 	currentDropPiece = null;
 	
-
+e.preventDefault();
 	e.stopPropagation();
 
 	var bRect = canvas.getBoundingClientRect();
