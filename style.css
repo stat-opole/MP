@@ -14,6 +14,8 @@ outline:0;
 	width:30%;
 }
 
+
+
 .obrazek1 {
 	/* width:537;  */
 	/* height:543; */
@@ -25,9 +27,17 @@ outline:0;
 .canvas2 {
 	margin-left: 10px;
 }
-
+.page {
+	position:absolute;
+	overflow-y:hidden;
+}
 body {
 	height:auto;
+	z-index:1;
+}
+
+.page {
+z-index:2;	
 }
 
 .canvas1 {
