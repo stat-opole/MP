@@ -331,8 +331,9 @@ function mouseDown(e)
 		{
 			
 			document.addEventListener('touchmove', mouseMove, {passive: false});
+			document.addEventListener('ontouchend', mouseUp, {passive: true});
 			//document.ontouchmove =mouseMove;
-			document.ontouchend = mouseUp;
+			//document.ontouchend = mouseUp;
 			
 		}
         
