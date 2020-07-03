@@ -145,18 +145,6 @@ if (Modernizr.touch) {
 
         touchSupported = true;
 
-        // eventsMap  = {
-
-            // select: "touchstart",
-
-            // down: "touchstart",
-
-            // up: "touchend",
-
-            // move: "touchmove"
-
-        // };
-
     }
 	buildPieces();
 
@@ -299,6 +287,7 @@ function mouseDown(e)
 	
 		mouseX = (e.touches[0].clientX - bRect.left);
 	mouseY = (e.touches[0].clientY - bRect.top);
+
 	}
 	
 	currentPiece=inPiece();
@@ -319,7 +308,7 @@ function mouseDown(e)
 		}
 		else
 		{
-			
+				e.preventDefault();
 			document.ontouchmove =mouseMove;
 			document.ontouchend = mouseUp;
 			//e=e.originalEvent;
