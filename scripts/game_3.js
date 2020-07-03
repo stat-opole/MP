@@ -53,7 +53,7 @@ start = document.getElementById('txt3'),
 	  document.getElementById("znikajacyobrazek").style.display = "block"; 
  
 	 setTimeout(function(){ document.getElementById("znikajacyobrazek").style.display = "none"; document.getElementById("page").style.textAlign = "center"; },5000);
-	   //document.getElementById("page").style.textAlign = "center"; 
+
  }
 
 function startTime() {
@@ -140,7 +140,7 @@ function initPuzzle()
     currentDropPiece = null
 	 ctx.drawImage(img, 0, 0, puzzleWidth, puzzleHeight, 0, 0, puzzleWidth, puzzleHeight);
 
-	 ctx.drawImage(img2, 200, 450);
+	 ctx.drawImage(img2, 200, 433);
 if (Modernizr.touch) {
 
         touchSupported = true;
@@ -205,7 +205,7 @@ function shufflePuzzle(e){
 	mouseX = (e.clientX - bRect.left);
 	mouseY = (e.clientY - bRect.top);
 	console.log(mouseY);
-	if(mouseX>201 && mouseX<299 && mouseY>452 && mouseY<487)
+	if(mouseX>201 && mouseX<299 && mouseY>435 && mouseY<467)
 	{
 		timer();
 	 //document.getElementById("start").style.display = "none"; 
