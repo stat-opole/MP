@@ -145,6 +145,18 @@ if (Modernizr.touch) {
 
         touchSupported = true;
 
+        // eventsMap  = {
+
+            // select: "touchstart",
+
+            // down: "touchstart",
+
+            // up: "touchend",
+
+            // move: "touchmove"
+
+        // };
+
     }
 	buildPieces();
 
@@ -287,7 +299,6 @@ function mouseDown(e)
 	
 		mouseX = (e.touches[0].clientX - bRect.left);
 	mouseY = (e.touches[0].clientY - bRect.top);
-
 	}
 	
 	currentPiece=inPiece();
@@ -308,27 +319,10 @@ function mouseDown(e)
 		}
 		else
 		{
-				e.preventDefault();
-			document.ontouchmove =mouseMove;
+			
+			document.addEventListener('touchmove', mouseMove, {passive: false});
+			//document.ontouchmove =mouseMove;
 			document.ontouchend = mouseUp;
-			//e=e.originalEvent;
-				//mouseMove(e);
-				
-				// document.ontouchend = function(e) {
-
-				// mouseUp(e)};
-	
-			
-			// canvas.bind('touchmove',function(e) {
-				// var e=e.originalEvent;
-				// mouseMove(e);
-				
-			// });
-			
-			// canvas.bind('touchend',function(e) {
-				// var e=ev.originalEvent;
-				// mouseUp(e);
-			// });
 		}
 	}
 	
@@ -339,12 +333,11 @@ function mouseDown(e)
 
 function mouseMove(e)
 {
-	
-	
-	e.preventDefault();
-
-	e.stopPropagation();
 	currentDropPiece = null;
+	
+	
+
+	//e.stopPropagation();
 
 	var bRect = canvas.getBoundingClientRect();
 	

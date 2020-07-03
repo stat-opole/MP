@@ -311,8 +311,8 @@ function mouseDown(e)
 		}
 		else
 		{
-			
-			document.ontouchmove =mouseMove;
+			document.addEventListener('touchmove', mouseMove, {passive: false});
+			//document.ontouchmove =mouseMove;
 			document.ontouchend = mouseUp;
 			//e=e.originalEvent;
 				//mouseMove(e);

@@ -329,28 +329,11 @@ function mouseDown(e)
 		}
 		else
 		{
-			//document.addEventListener('touchstart', touchstartHandler, {passive: false});
-document.addEventListener('touchmove', mouseMove, {passive: false});
+			
+			document.addEventListener('touchmove', mouseMove, {passive: false});
 			//document.ontouchmove =mouseMove;
 			document.ontouchend = mouseUp;
-			//e=e.originalEvent;
-				//mouseMove(e);
-				
-				// document.ontouchend = function(e) {
-
-				// mouseUp(e)};
-	
 			
-			// canvas.bind('touchmove',function(e) {
-				// var e=e.originalEvent;
-				// mouseMove(e);
-				
-			// });
-			
-			// canvas.bind('touchend',function(e) {
-				// var e=ev.originalEvent;
-				// mouseUp(e);
-			// });
 		}
         
 	}
