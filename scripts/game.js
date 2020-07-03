@@ -334,7 +334,6 @@ function mouseDown(e)
 			e.stopPropagation();
 			//document.ontouchmove =mouseMove;
 			//document.ontouchend = mouseUp;
-			//document.addEventListener('ontouchend', mouseUp, {passive: true});
 			document.ontouchend = mouseUp;
 		}
         
