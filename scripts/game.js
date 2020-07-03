@@ -329,8 +329,9 @@ function mouseDown(e)
 		}
 		else
 		{
-			
-			document.ontouchmove =mouseMove;
+			//document.addEventListener('touchstart', touchstartHandler, {passive: false});
+document.addEventListener('touchmove', mouseMove, {passive: false});
+			//document.ontouchmove =mouseMove;
 			document.ontouchend = mouseUp;
 			//e=e.originalEvent;
 				//mouseMove(e);
@@ -363,7 +364,7 @@ function mouseMove(e)
 {
 	
 	currentDropPiece = null;
-//e.preventDefault();
+e.preventDefault();
 	e.stopPropagation();
 
 	var bRect = canvas.getBoundingClientRect();
@@ -394,7 +395,8 @@ function mouseMove(e)
 		}
 		
 		ctx.drawImage(img, piece.x, piece.y, pieceWidth, pieceHeight, piece.xx, piece.yy, pieceWidth, pieceHeight);
-		ctx.strokeRect(piece.x, piece.y, pieceWidth,pieceHeight);
+		
+		ctx.strokeRect(piece.xx, piece.yy, pieceWidth,pieceHeight);
 		if(currentDropPiece == null){
             if(mouseX < piece.xx || mouseX > (piece.xx + pieceWidth) || mouseY < piece.yy || mouseY > (piece.yy + pieceHeight)){
             }
