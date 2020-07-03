@@ -413,6 +413,7 @@ function mouseUp(e)
 	}
 	else
 	{
+		
 		//document.ontouchmove = null;
 		
 				
