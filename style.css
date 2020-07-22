@@ -3,50 +3,49 @@ a {
 outline:0;
 }
 
- /* canvas {display:block; margin-left: 10px;} */
 
+
+body {
+	background-color:#fffad5;
+}
+
+#logo {
+	height: 56px;
+}
 
 .zagraj {
 	width:20%;
+}
+
+.position {
+	text-align:center;
+}
+
+.colors {
+	background-color:silver;
 }
 
 .puzzle {
 	width:30%;
 }
 
+#timer {
+	background-color:yellow	
+}
+
 .obrazek1 {
-	/* width:537;  */
-	/* height:543; */
 	width:537px;
 	height:543px;
 	border:solid;
 }
 
-.canvas2 {
-	margin-left: 10px;
-}
+
 
 body {
 	height:auto;
 }
 
-.canvas1 {
-	display:block; margin-left: 10px;
-}
 
-/* img { */
-	/* /* animation: pulse 5s infinite; */ */
-	/* animation-name: example; */
-/* } */
-
-@keyframes example {
-  0% {
-    background-color: #001F3F;
-  }
-  100% {
-    background-color: #FF4136;
-  }
-}
 
 .fade {
 -webkit-animation: fade 5s;
@@ -73,37 +72,6 @@ animation: fade 5s;
   100%{opacity: 0.2}
     }
 @-o-keyframes fade {
-0% {opacity: 0.2} 
-  50% {opacity: 1}
-  100%{opacity: 0.2}
-
-}
-
-.fade2 {
--webkit-animation: fade2 5s;
-animation: fade2 5s;
--moz-animation: fade2 5s;
--o-animation: fade2 5s;
-}
-
-@-webkit-keyframes fade2 {
-0% {opacity: 0.2} 
-50% {opacity: 1}
-100% {opacity:0.2}
-}
-
-@-moz-keyframes fade2{
-    0% {opacity: 0.2} 
-  50% {opacity: 1}
-  100% {opacity:0}  
-}
-
-@keyframes fade2 {
-  0% {opacity: 0.2} 
-  50% {opacity: 1}
-  100%{opacity: 0.2}
-    }
-@-o-keyframes fade2 {
 0% {opacity: 0.2} 
   50% {opacity: 1}
   100%{opacity: 0.2}
