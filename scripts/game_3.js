@@ -1,4 +1,4 @@
- const puzzle_level = 9;
+ const puzzle_level = 6;
  var canvas = document.getElementById("myCanvas"), ctx = canvas.getContext("2d");
  
  var ctx, startX, startY;
@@ -38,7 +38,7 @@ start = document.getElementById('txt3'),
 	 mouse = {x:0,y:0};
 	 img = new Image();
 	 img.addEventListener('load',onImage,false);
-	 img.src = "images/Puzzle2.JPG";
+	 img.src = "images/Puzzle4.JPG";
 	 
 	  img2=new Image();
 	  img2.addEventListener('load',onImage,false);
@@ -140,7 +140,7 @@ function initPuzzle()
     currentDropPiece = null
 	 ctx.drawImage(img, 0, 0, puzzleWidth, puzzleHeight, 0, 0, puzzleWidth, puzzleHeight);
 
-	 ctx.drawImage(img2, 200, 433);
+	 ctx.drawImage(img2, 200, 510);
 if (Modernizr.touch) {
 
         touchSupported = true;
@@ -205,7 +205,7 @@ function shufflePuzzle(e){
 	mouseX = (e.clientX - bRect.left);
 	mouseY = (e.clientY - bRect.top);
 	console.log(mouseY);
-	if(mouseX>201 && mouseX<299 && mouseY>435 && mouseY<467)
+	if(mouseX>201 && mouseX<299 && mouseY>510 && mouseY<546)
 	{
 		timer();
 	 //document.getElementById("start").style.display = "none"; 

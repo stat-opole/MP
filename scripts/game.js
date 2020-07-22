@@ -484,7 +484,7 @@ function gameOver(){
 	alert("Gratulacje! \nUkończyłaś/eś poziom łatwy w czasie: "+start.textContent +"\nPrzechodzisz do kolejnego poziomu");
    myStopFunction();
 
-   window.location.href = "choose_level2.html";
+   window.location.href = "choose_level3.html";
 }
 
 
