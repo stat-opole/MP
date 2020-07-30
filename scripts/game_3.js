@@ -353,8 +353,8 @@ function gameOver(){
 	document.getElementById('txt').innerHTML =
 	h + ":" + m + ":" + s;       
    
-   var psr = 'U2FsdGVkX1/y4F5zO9gvm3DAHu7KUCui4ywik4BdxBf1Oz5qVU9lemfUO2GLBJq5EO4l3rm+3TLiSVtmbTB8ew==';
-    var plain = CryptoJS.AES.decrypt(psr, 'CryptoJS.pad.Pkcs7', "{ mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 }");
+  // var psr = 'U2FsdGVkX1/y4F5zO9gvm3DAHu7KUCui4ywik4BdxBf1Oz5qVU9lemfUO2GLBJq5EO4l3rm+3TLiSVtmbTB8ew==';
+   // var plain = CryptoJS.AES.decrypt(psr, 'CryptoJS.pad.Pkcs7', "{ mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 }");
 
    var a=window.innerWidth;
    if(a<1018){
@@ -368,7 +368,7 @@ else{
 	myStopFunction();
 	canvas.id = "graph";
 	
-	document.getElementById('endGame').innerHTML = "Gratulacje!"+"<br>"+" Gra zakończona sukcesem."+"<br>"+"Twoje hasło:"+ plain;
+	document.getElementById('endGame').innerHTML = "Gratulacje!"+"<br>"+" Gra zakończona sukcesem."+"<br>"+"Twoje hasło: traktor";
 							
 	
 }
