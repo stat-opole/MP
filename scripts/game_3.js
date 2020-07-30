@@ -156,7 +156,7 @@ function shufflePuzzle(e){
 	var bRect = canvas.getBoundingClientRect();
 	mouseX = (e.clientX - bRect.left);
 	mouseY = (e.clientY - bRect.top);
-	console.log(mouseY);
+	
 	
 	if(mouseX>201 && mouseX<299 && mouseY>510 && mouseY<546)
 	{
