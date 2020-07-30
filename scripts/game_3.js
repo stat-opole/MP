@@ -1,6 +1,7 @@
- const puzzle_level = 6;
+ const puzzle_level = 2;
  var canvas = document.getElementById("myCanvas"), ctx = canvas.getContext("2d");
- 
+ var pages = document.getElementById("page")
+
  var img, img2;
  var pieces;
  var puzzleWidth;
@@ -156,7 +157,7 @@ function shufflePuzzle(e){
 	var bRect = canvas.getBoundingClientRect();
 	mouseX = (e.clientX - bRect.left);
 	mouseY = (e.clientY - bRect.top);
-	
+	console.log(mouseY);
 	
 	if(mouseX>201 && mouseX<299 && mouseY>510 && mouseY<546)
 	{
@@ -342,7 +343,7 @@ function gameOver(){
     document.onmousedown = null;
     document.onmousemove = null;
     document.onmouseup = null;
-	
+	document.getElementById('pokaz').style.pointerEvents = 'none'; 
 	var today = new Date();
 	var h = today.getHours();
 	var m = today.getMinutes();
@@ -352,7 +353,22 @@ function gameOver(){
 	document.getElementById('txt').innerHTML =
 	h + ":" + m + ":" + s;       
    
-	alert("Gratulacje! \nUkończyłaś/eś poziom trudny w czasie: "+start.textContent+"\nData: " +dd+"."+mm+"."+yyyy + "\nGodzina zakończenia układania puzzli: "+ h+":"+m+":"+s  +"\nTwoje hasło to: ********");
-  
+   var psr = 'U2FsdGVkX1/y4F5zO9gvm3DAHu7KUCui4ywik4BdxBf1Oz5qVU9lemfUO2GLBJq5EO4l3rm+3TLiSVtmbTB8ew==';
+    var plain = CryptoJS.AES.decrypt(psr, 'CryptoJS.pad.Pkcs7', "{ mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 }");
+
+   var a=window.innerWidth;
+   if(a<1018){
+	   document.getElementById("footer1").id = "footer2"; 
+	   setTimeout(function(){document.getElementById("pokaz").style.display = "none";document.getElementById("endGame").style.float="left";document.getElementById("graph").style.float="left";canvas.id = "myCanvas";document.getElementById("endGame").style.display = "block";document.getElementById("endGame").style.textAlign = "center";document.getElementById("footer2").id="footer1" },5100);
+   }
+else{
+	setTimeout(function(){document.getElementById("pokaz").style.display = "none";document.getElementById("endGame").style.float="left";document.getElementById("graph").style.float="right";document.getElementById("endGame").style.display = "block";document.getElementById("endGame").style.textAlign = "center";canvas.id = "myCanvas"; },5100);
+}
+	
 	myStopFunction();
+	canvas.id = "graph";
+	
+	document.getElementById('endGame').innerHTML = "Gratulacje!"+"<br>"+" Gra zakończona sukcesem."+"<br>"+"Twoje hasło:"+ plain;
+							
+	
 }
