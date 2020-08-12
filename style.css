@@ -1,9 +1,6 @@
-
 a {
 outline:0;
 }
-
-
 
 body {
 	background-color:#fffad5;
@@ -40,13 +37,6 @@ body {
 }
 
 
-
-/* body { */
-	/* height:auto; */
-/* } */
-
-
-
 .fade {
 -webkit-animation: fade 5s;
 animation: fade 5s;
@@ -77,116 +67,54 @@ animation: fade 5s;
   100%{opacity: 0.2}
 
 }
+ #graph2, #footer1 { 
+   transform-origin: right center; 
+   animation: scale 4000ms ease-in-out forwards; 
 
-#graph  {
-  
-     -ms-transition: transform 5s; 
-    -webkit-transition: transform 5s;
-     -moz-transition: transform 5s;
-     -o-transition: transform 5s;
-     transition: transform 5s;
-	
+} 
+  @keyframes scale {  
+    to {  
+      transform: translateY(190px); 
 
+    }  
+   } 
+    @-webkit-keyframes scale {  
+    to {  
+      transform: translateY(190px); 
+
+    }  
+   } 
+     @-moz-keyframes scale {  
+    to {  
+      transform: translateY(190px); 
+
+    }  
+   } 
+     @-o-keyframes scale {  
+    to {  
+      transform: translateY(190px); 
+
+    }  
+   } 
+
+
+ 
+#page {
+	width:100%;
+	height:auto;
 }
 
-@media (min-width:320px)  { 
- #footer2 { 
- -webkit-transition: transform 5s;
- -webkit-transform: translateY(340px);
- }	 
-#graph{
-       -ms-transform: translateX(400px);
-       -moz-transform: translateX(400px);
-       -webkit-transform: translateY(400px);
-       -o-transform: translateX(400px);
-       transform: translateX(400px);
+h3{
+color: #ee1040;
+font-size: 50px;
+align-items: center;
+text-align: center;
 }
 
-}/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-@media (min-width:480px)  { 
- #footer2 { 
- -webkit-transition: transform 5s;
- -webkit-transform: translateY(340px);
- }	
-#graph{
-	
-       -ms-transform: translateX(400px);
-       -moz-transform: translateX(400px); 
-       -webkit-transform: translateY(400px);
-       -o-transform: translateX(400px);
-       transform: translateX(400px);
-}
-
- }/* smartphones, Android phones, landscape iPhone */
-@media (min-width:600px)  { 
- #footer2 { 
- -webkit-transition: transform 5s;
- -webkit-transform: translateY(400px);
- }	
-#graph{
-       -ms-transform: translateX(400px);
-       -moz-transform: translateX(400px);
-       -webkit-transform: translateY(400px);
-       -o-transform: translateX(400px);
-       transform: translateX(400px);
-}
-
-}/* big landscape tablets, laptops, and desktops */ 
-@media (min-width:1281px) { 
-#graph{
-       -ms-transform: translateX(340px);
-       -moz-transform: translateX(340px);
-       -webkit-transform: translateX(340px);
-       -o-transform: translateX(340px);
-       transform: translateX(340px); 
-}
-
-/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ }
-@media (min-width:801px)  { 
-#graph{
-       -ms-transform: translateX(340px);
-       -moz-transform: translateX(340px);
-       -webkit-transform: translateY(340px);
-       -o-transform: translateX(340px);
-       transform: translateX(340px);
-}
-
-}/* big landscape tablets, laptops, and desktops */ 
-@media (min-width:1281px) { 
-#graph{
-       -ms-transform: translateX(340px);
-       -moz-transform: translateX(340px);
-       -webkit-transform: translateX(340px);
-       -o-transform: translateX(340px);
-       transform: translateX(340px);
-}
-
-/* tablet, landscape iPad, lo-res laptops ands desktops */ }
-@media (min-width:1025px) { 
-#graph{
-       -ms-transform: translateX(340px);
-       -moz-transform: translateX(340px);
-       -webkit-transform: translateX(340px);
-       -o-transform: translateX(340px); 
-       transform: translateX(340px);  
-}
-
-}/* big landscape tablets, laptops, and desktops */ 
-@media (min-width:1281px) { 
-#graph{
-       -ms-transform: translateX(340px); 
-       -moz-transform: translateX(340px);
-       -webkit-transform: translateX(340px);
-       -o-transform: translateX(340px);  
-       transform: translateX(340px);  
-}
-
- } /* hi-res laptops and desktops */
 
 
 
 
-h1 {
-	margin:10%;
-	
-}
+
+
+
