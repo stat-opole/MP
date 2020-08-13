@@ -111,6 +111,43 @@ align-items: center;
 text-align: center;
 }
 
+#endGame1 {
+	 font-family: 'Fira Sans', sans-serif;
+	 font-weight:700;
+	color:#008000;
+}
+
+ #endGame1 {
+		
+	 -webkit-animation: fade1 2s; 
+ animation: fade1 2s; 
+ -moz-animation: fade1 2s; 
+ -o-animation: fade1 2s; 
+ } 
+
+
+ @-webkit-keyframes fade1 { 
+   0% {opacity: 0.2}  
+   50% {opacity: 0.6} 
+   100%{opacity: 1} 
+ } 
+
+ @-moz-keyframes fade1{ 
+   0% {opacity: 0.2}  
+   50% {opacity: 0.6} 
+   100%{opacity: 1}  
+ } 
+
+ @keyframes fade1 { 
+   0% {opacity: 0.2}  
+   50% {opacity: 0.6} 
+   100%{opacity: 1} 
+     } 
+ @-o-keyframes fade1 { 
+   0% {opacity: 0.2}  
+   50% {opacity: 0.6} 
+   100%{opacity: 1} 
+ } 
 
 
 
