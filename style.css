@@ -38,10 +38,10 @@ body {
 
 
 .fade {
--webkit-animation: fade 5s;
-animation: fade 5s;
--moz-animation: fade 5s;
--o-animation: fade 5s;
+-webkit-animation: fade 4s;
+animation: fade 4s;
+-moz-animation: fade 4s;
+-o-animation: fade 4s;
 }
 
 @-webkit-keyframes fade {
