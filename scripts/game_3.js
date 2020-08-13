@@ -357,12 +357,17 @@ function gameOver(){
 	canvas.id = "graph2";
 	document.getElementById("footer").id = "footer1"
    document.getElementById("pokaz").style.display = "none"
+document.getElementById("endGame").id = "endGame1"
 
-setTimeout(function(){document.getElementById("endGame").style.display = "block",canvas.id = "graph10";document.getElementById("footer1").id = "footer"},5100)
+   setTimeout(function(){document.getElementById("endGame1").style.display = "block";},2610)
+
+setTimeout(function(){canvas.id = "graph10";document.getElementById("footer1").id = "footer"},2609)
+
+//setTimeout(function(){document.getElementById("endGame").style.display = "block",canvas.id = "graph10";document.getElementById("footer1").id = "footer"},5100)
 
 
 
-document.getElementById('endGame').innerHTML = "Gratulacje!"+"<br>"+" Gra zakończona sukcesem."+"<br>"+ plain.toString(CryptoJS.enc.Utf8);
+document.getElementById('endGame1').innerHTML = "Gratulacje!"+"<br>"+" Gra zakończona sukcesem."+"<br>"+ plain.toString(CryptoJS.enc.Utf8);
 
 //document.getElementById('pass_p').innerHTML = "Gratulacje!"+"<br>"+" Gra zakończona sukcesem."+"<br>"+"Twoje hasło: " + plain.toString(CryptoJS.enc.Utf8);
 
