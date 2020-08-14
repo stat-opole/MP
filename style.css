@@ -111,14 +111,22 @@ align-items: center;
 text-align: center;
 }
 
-#endGame1 {
-	 font-family: 'Fira Sans', sans-serif;
+.nameFontBold {
+	font-family: 'Fira Sans', sans-serif; 
 	 font-weight:700;
-	color:#008000;
+	 padding-left:8%;
+}
+
+.nameFont {
+	font-family: 'Fira Sans', sans-serif; 
+	  font-weight:100;
+	   padding-left:12%; 
 }
 
  #endGame1 {
-		
+		  font-family: 'Fira Sans', sans-serif; 
+	  font-weight:700; 
+	color:#008000;
 	 -webkit-animation: fade1 2s; 
  animation: fade1 2s; 
  -moz-animation: fade1 2s; 
