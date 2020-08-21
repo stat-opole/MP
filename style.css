@@ -3,7 +3,7 @@ outline:0;
 }
 
 body {
-	background-color:#fffad5;
+	background-color:rgb(188, 228, 188);
 }
 
 #logo {
@@ -19,7 +19,7 @@ body {
 }
 
 .colors {
-	background-color:silver;
+	background-color:#70c048;
 }
 
 .puzzle {
@@ -27,7 +27,7 @@ body {
 }
 
 #timer {
-	background-color:yellow	
+	background-color:rgb(170, 210, 170);	
 }
 
 .obrazek1 {
