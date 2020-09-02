@@ -160,7 +160,15 @@ text-align: center;
    100%{opacity: 1} 
  } 
 
+@media (max-width: 480px) {
+ .puzzle {
+	width:40%;
+	}
 
+.zagraj {
+	width:40%;
+	}
+}
 
 
 
