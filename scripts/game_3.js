@@ -30,7 +30,7 @@
 	mouse = {x:0,y:0};
 	img = new Image();
 	img.addEventListener('load',onImage,false);
-	img.src = "images/Puzzle4.JPG";
+	img.src = "images/Puzzle1.JPG";
 	 
 	img2=new Image();
 	img2.addEventListener('load',onImage,false);
@@ -367,12 +367,10 @@ setTimeout(function(){canvas.id = "graph10";document.getElementById("footer1").i
 
 
 
-document.getElementById('endGame1').innerHTML = "Gratulacje!"+"<br>"+" Gra zakończona sukcesem."+"<br>"+ plain.toString(CryptoJS.enc.Utf8);
+document.getElementById('endGame1').innerHTML = "Gratulacje!"+"<br>"+" Gra zakończona sukcesem."+"<br>"+ "Hasło: Spiszmy się, jak na rolników przystało!";
+//plain.toString(CryptoJS.enc.Utf8)
 
 //document.getElementById('pass_p').innerHTML = "Gratulacje!"+"<br>"+" Gra zakończona sukcesem."+"<br>"+"Twoje hasło: " + plain.toString(CryptoJS.enc.Utf8);
-
-//alert("Gratulacje! \nUkończyłaś/eś poziom trudny w czasie: "+start.textContent+"\nData: " +dd+"."+mm+"."+yyyy + "\nGodzina zakończenia układania puzzli: "+ h+":"+m+":"+s  +"\nTwoje hasło to: ");
-  
 	myStopFunction();
 
 

@@ -30,7 +30,7 @@
 	mouse = {x:0,y:0};
 	img = new Image();
 	img.addEventListener('load',onImage,false);
-	img.src = "images/Puzzle4.JPG";
+	img.src = "images/Puzzle1.JPG";
  }
 
  function startTime() {
