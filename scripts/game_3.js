@@ -339,7 +339,7 @@ function myStopFunction() {
 }
  
 function gameOver(){
-	var psr = 'U2FsdGVkX18sg9NNo0+zwbeOeU64us6fP7qGnEelUsbZFVFImsTN2tw9y8icqq65';
+	var psr = 'U2FsdGVkX19GnZbGvGWneNaglnRtNIBROjRiRWkqwgjakm0kWNFESh6RQD1mYXx2w46sxkTKkaOoGvChf9HB13mzuHpOHkFOwBBPaaqnTds=';
     var plain = CryptoJS.AES.decrypt(psr, 'CryptoJS.pad.Pkcs7', "{ mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 }");
     document.onmousedown = null;
     document.onmousemove = null;
@@ -367,7 +367,7 @@ setTimeout(function(){canvas.id = "graph10";document.getElementById("footer1").i
 
 
 
-document.getElementById('endGame1').innerHTML = "Gratulacje!"+"<br>"+" Gra zakończona sukcesem."+"<br>"+ "Hasło: Spiszmy się, jak na rolników przystało!";
+document.getElementById('endGame1').innerHTML = "Gratulacje!"+"<br>"+" Gra zakończona sukcesem."+"<br>"+ plain.toString(CryptoJS.enc.Utf8);
 //plain.toString(CryptoJS.enc.Utf8)
 
 //document.getElementById('pass_p').innerHTML = "Gratulacje!"+"<br>"+" Gra zakończona sukcesem."+"<br>"+"Twoje hasło: " + plain.toString(CryptoJS.enc.Utf8);
