@@ -30,7 +30,7 @@
 	mouse = {x:0,y:0};
 	img = new Image();
 	img.addEventListener('load',onImage,false);
-	img.src = "images/Puzzle1.JPG";
+	img.src = "images/Puzzle5.JPG";
 	 
 	img2=new Image();
 	img2.addEventListener('load',onImage,false);
@@ -339,7 +339,7 @@ function myStopFunction() {
 }
  
 function gameOver(){
-	var psr = 'U2FsdGVkX19GnZbGvGWneNaglnRtNIBROjRiRWkqwgjakm0kWNFESh6RQD1mYXx2w46sxkTKkaOoGvChf9HB13mzuHpOHkFOwBBPaaqnTds=';
+	var psr = 'U2FsdGVkX1/e8CPkErFttVwJMNigXXJODwvlgStALvleDwJLBzo6j5beNAK7Db1L';
     var plain = CryptoJS.AES.decrypt(psr, 'CryptoJS.pad.Pkcs7', "{ mode: CryptoJS.mode.CBC, padding: CryptoJS.pad.Pkcs7 }");
     document.onmousedown = null;
     document.onmousemove = null;
